@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7211845505557485070}
   - component: {fileID: -8417066586521582631}
   m_Layer: 0
-  m_Name: Ball
+  m_Name: DraggableBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
