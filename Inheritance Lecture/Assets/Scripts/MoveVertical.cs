@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveVertical : MonoBehaviour
 {
-    [SerializeField] float yspeed = 0;
+    public float yspeed = 0;
     // Start is called before the first frame update
     void Start()
     {
