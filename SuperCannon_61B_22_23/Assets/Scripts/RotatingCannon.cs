@@ -6,6 +6,8 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class RotatingCannon : MonoBehaviour
 {
+    public GameObject mysmallbulletprefab;
+    // public Transform cannontip;
     Vector3 mousePos;
 
     Quaternion newRotation, clampRotLow, clampRotHigh;
@@ -20,9 +22,7 @@ public class RotatingCannon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = Camera.main.ScreenToWorldPoint(CrossPlatformInputManager.mousePosition)
-            - Camera.main.transform.position;
-        Debug.Log(mousePos);
+        mousePos = GameData.MousePos;
         newRotation = Quaternion.LookRotation(this.gameObject.transform.position - mousePos, Vector3.forward);
         newRotation.x = 0f;
         newRotation.y = 0f;
@@ -30,5 +30,10 @@ public class RotatingCannon : MonoBehaviour
         newRotation.w = Mathf.Clamp(newRotation.w, clampRotLow.w, clampRotHigh.w);
 
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, newRotation, Time.deltaTime * 3f);
+    
+        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+        {
+            Instantiate(mysmallbulletprefab, this.transform.GetChild(0).position, Quaternion.identity);
+        }
     }
 }
