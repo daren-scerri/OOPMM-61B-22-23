@@ -11,6 +11,26 @@ public abstract class GameData : MonoBehaviour
         get { return GetMousePos(); }
     }
 
+    public static float XMin
+    {
+        get {  return Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x; }
+    }
+
+    public static float XMax
+    {
+        get { return Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x; }
+    }
+
+    public static float YMin
+    {
+        get { return Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).y; }
+    }
+
+    public static float YMax
+    {
+        get { return Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y; }
+    }
+
     static Vector3 GetMousePos()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(CrossPlatformInputManager.mousePosition)
@@ -18,6 +38,8 @@ public abstract class GameData : MonoBehaviour
         Debug.Log(mousePos);
         return mousePos;
     }
+
+
 
     /*
     public int damage
