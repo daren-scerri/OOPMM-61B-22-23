@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPooling : MonoBehaviour
+public class SmallBulletPooling : MonoBehaviour
 {
-    public static ObjectPooling SharedInstance;
+    public static SmallBulletPooling SharedInstance;
     public List<GameObject> pooledObjects;
     public GameObject objectToPool;
     public int amountToPool;

@@ -133,6 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 55745458}
   - component: {fileID: 55745457}
+  - component: {fileID: 55745459}
+  - component: {fileID: 55745460}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -167,6 +169,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &55745459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55745456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f0114075d1f4a4193db355779a99d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 5435006725845527824, guid: 7e19be44d40ee454ba82f31c32dc337e, type: 3}
+  amountToPool: 20
+--- !u!114 &55745460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55745456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260d3bc77db50aa4ba8f71edfbc015fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 4735928494702377656, guid: 92db5739151fb2b43ab8622a690e36d0, type: 3}
+  amountToPool: 20
 --- !u!1 &471205563
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +467,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf43752f9f61044fb45098f18a28f3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mysmallbulletprefab: {fileID: 5435006725845527824, guid: 7e19be44d40ee454ba82f31c32dc337e, type: 3}
 --- !u!70 &1067599543
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

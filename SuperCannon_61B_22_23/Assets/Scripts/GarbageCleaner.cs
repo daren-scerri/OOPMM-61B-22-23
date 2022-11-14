@@ -6,6 +6,7 @@ public class GarbageCleaner : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(other.gameObject);
+        if (other.gameObject.name.Contains("Bullet"))
+            other.gameObject.SetActive(false);
     }
 }

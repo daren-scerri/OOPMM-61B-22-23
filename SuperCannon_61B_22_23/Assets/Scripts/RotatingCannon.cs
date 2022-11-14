@@ -6,7 +6,7 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class RotatingCannon : MonoBehaviour
 {
-    public GameObject mysmallbulletprefab;
+   // public GameObject mylargebulletprefab;
     // public Transform cannontip;
     Vector3 mousePos;
 
@@ -33,7 +33,27 @@ public class RotatingCannon : MonoBehaviour
     
         if (CrossPlatformInputManager.GetButtonDown("Fire1"))
         {
-            Instantiate(mysmallbulletprefab, this.transform.GetChild(0).position, Quaternion.identity);
+            GameObject bullet = SmallBulletPooling.SharedInstance.GetPooledObject();
+            if (bullet != null)
+            {
+                bullet.transform.position = this.transform.GetChild(0).position;
+                bullet.transform.rotation = Quaternion.identity;
+                bullet.SetActive(true);
+            }
+            // Instantiate(mysmallbulletprefab, this.transform.GetChild(0).position, Quaternion.identity);
         }
+
+        if (CrossPlatformInputManager.GetButtonDown("Fire2"))
+        {
+            GameObject bullet = LargeBulletPooling.SharedInstance.GetPooledObject();
+            if (bullet != null)
+            {
+                bullet.transform.position = this.transform.GetChild(0).position;
+                bullet.transform.rotation = Quaternion.identity;
+                bullet.SetActive(true);
+            }
+        }
+
+
     }
 }
