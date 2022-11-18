@@ -11,6 +11,7 @@ public class RotatingCannon : MonoBehaviour
     Vector3 mousePos;
 
     Quaternion newRotation, clampRotLow, clampRotHigh;
+    public BulletPooling smallbulletpool, largebulletpool;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class RotatingCannon : MonoBehaviour
     
         if (CrossPlatformInputManager.GetButtonDown("Fire1"))
         {
-            GameObject bullet = SmallBulletPooling.SharedInstance.GetPooledObject();
+            GameObject bullet = smallbulletpool.GetPooledObject();
             if (bullet != null)
             {
                 bullet.transform.position = this.transform.GetChild(0).position;
@@ -45,7 +46,7 @@ public class RotatingCannon : MonoBehaviour
 
         if (CrossPlatformInputManager.GetButtonDown("Fire2"))
         {
-            GameObject bullet = LargeBulletPooling.SharedInstance.GetPooledObject();
+            GameObject bullet = largebulletpool.GetPooledObject();
             if (bullet != null)
             {
                 bullet.transform.position = this.transform.GetChild(0).position;

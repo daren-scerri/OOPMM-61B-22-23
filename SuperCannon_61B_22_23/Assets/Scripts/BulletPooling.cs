@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmallBulletPooling : MonoBehaviour
+public class BulletPooling : MonoBehaviour
 {
-    public static SmallBulletPooling SharedInstance;
+    public BulletPooling BulletPoolInstance;
     public List<GameObject> pooledObjects;
     public GameObject objectToPool;
     public int amountToPool;
     void Awake()
     {
-        SharedInstance = this;
+        BulletPoolInstance = this;
     }
     void Start()
     {
@@ -19,6 +19,7 @@ public class SmallBulletPooling : MonoBehaviour
         for (int i = 0; i < amountToPool; i++)
         {
             tmp = Instantiate(objectToPool);
+            tmp.transform.SetParent(this.transform);
             tmp.SetActive(false);
             pooledObjects.Add(tmp);
         }
