@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public List<GameObject> enemyprefabs;
+    public List<EnemySO> myenemiesList;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +16,10 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            int enemychoice = Random.Range(0, enemyprefabs.Count);
+            int enemychoice = Random.Range(0, myenemiesList.Count);
             Vector3 spawnpos = new Vector3(Random.Range(GameData.XMin, GameData.XMax), GameData.YMax, 0);
-            Instantiate(enemyprefabs[enemychoice], spawnpos, Quaternion.identity);
+            GameObject spawnedEnemy = Instantiate(myenemiesList[enemychoice].EnemyGO, spawnpos, Quaternion.identity);
+            spawnedEnemy.GetComponent<Enemy>().health = myenemiesList[enemychoice].strength;
             yield return new WaitForSeconds(1f);
         }
         

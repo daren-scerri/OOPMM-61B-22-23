@@ -35,7 +35,7 @@ public abstract class GameData : MonoBehaviour
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(CrossPlatformInputManager.mousePosition)
             - Camera.main.transform.position;
-        Debug.Log(mousePos);
+      //  Debug.Log(mousePos);
         return mousePos;
     }
 

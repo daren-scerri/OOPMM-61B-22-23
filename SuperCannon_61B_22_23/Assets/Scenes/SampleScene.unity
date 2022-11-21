@@ -180,9 +180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47fa12efd623cd1479a18c7e8202945b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyprefabs:
-  - {fileID: 3513440476183468001, guid: 0b421ef62f7b2974fb43adcf0d80ff95, type: 3}
-  - {fileID: 4990822833853738802, guid: 4ca2736cbe9535a40bbd82313d234960, type: 3}
+  myenemiesList:
+  - {fileID: 11400000, guid: 5136ed281b6f28e4697b52410f5a9d00, type: 2}
+  - {fileID: 11400000, guid: 42cbb023513376b4084b9772f2b00240, type: 2}
 --- !u!1 &471205563
 GameObject:
   m_ObjectHideFlags: 0
