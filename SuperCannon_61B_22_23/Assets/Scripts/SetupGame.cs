@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetupGame : MonoBehaviour
+public class SetupGame : Singleton<SetupGame>
 {
     private GameObject vertWallPrefab, horizWallPrefab;
     // Start is called before the first frame update

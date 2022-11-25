@@ -2,10 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner :MonoBehaviour
 {
     public List<EnemySO> myenemiesList;
     // Start is called before the first frame update
+
+    //SINGLETON PATTERN using Awake() method in same class.
+
+    public static EnemySpawner _instance;
+
+    private void Awake()
+    {
+        if (_instance == null)    //SINGLETON PATTERN
+        {
+            _instance = this;
+        }
+        else if (_instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+
+
     void Start()
     {
         StartCoroutine(SpawnEnemies());  
