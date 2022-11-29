@@ -38,7 +38,8 @@ public class EnemySpawner :MonoBehaviour
             int enemychoice = Random.Range(0, myenemiesList.Count);
             Vector3 spawnpos = new Vector3(Random.Range(GameData.XMin, GameData.XMax), GameData.YMax, 0);
             GameObject spawnedEnemy = Instantiate(myenemiesList[enemychoice].EnemyGO, spawnpos, Quaternion.identity);
-            spawnedEnemy.GetComponent<Enemy>().health = myenemiesList[enemychoice].strength;
+            spawnedEnemy.GetComponent<Enemy>().starthealth = myenemiesList[enemychoice].strength;
+            spawnedEnemy.GetComponent<Enemy>().scorevalue = myenemiesList[enemychoice].scoreReward;
             yield return new WaitForSeconds(1f);
         }
         

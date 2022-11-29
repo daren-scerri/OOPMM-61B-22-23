@@ -6,6 +6,13 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public abstract class GameData : MonoBehaviour
 {
+    static int  _score = 0;
+    public static int Score
+    {
+        get { return _score; }
+        set { _score = value; }
+    }
+
     public static Vector3 MousePos
     {
         get { return GetMousePos(); }

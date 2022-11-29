@@ -5,12 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public int health;
+    public int starthealth, scorevalue;
+    int health;
     //public int scorereward, speed, strength; 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Starting health:" + health.ToString());
+        health = starthealth;
+        Debug.Log("Starting health:" + starthealth.ToString());
     }
 
     // Update is called once per frame
@@ -18,4 +20,18 @@ public class Enemy : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name.Contains("Bullet"))
+        {
+            other.gameObject.SetActive(false);
+            GameData.Score += scorevalue;
+            health--;
+            Debug.Log("Score: " + GameData.Score.ToString());
+            if (health <= 0) Destroy(this.gameObject); 
+
+        }
+    }
+
 }
