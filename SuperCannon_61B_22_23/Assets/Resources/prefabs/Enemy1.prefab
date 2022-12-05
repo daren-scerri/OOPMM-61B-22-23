@@ -150,6 +150,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac1761cda84c54b4fa085f61e2169ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scorereward: 5
-  speed: 10
-  strength: 3
+  starthealth: 0
+  scorevalue: 0

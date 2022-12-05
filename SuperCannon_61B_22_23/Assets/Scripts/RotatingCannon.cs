@@ -31,28 +31,21 @@ public class RotatingCannon : MonoBehaviour
         newRotation.w = Mathf.Clamp(newRotation.w, clampRotLow.w, clampRotHigh.w);
 
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, newRotation, Time.deltaTime * 3f);
-    
+        CannonFiring _firingInstance = GetComponentInChildren(typeof(CannonFiring)) as CannonFiring;
+
         if (CrossPlatformInputManager.GetButtonDown("Fire1"))
         {
+         
             GameObject bullet = smallbulletpool.GetPooledObject();
-            if (bullet != null)
-            {
-                bullet.transform.position = this.transform.GetChild(0).position;
-                bullet.transform.rotation = Quaternion.identity;
-                bullet.SetActive(true);
-            }
-            // Instantiate(mysmallbulletprefab, this.transform.GetChild(0).position, Quaternion.identity);
-        }
+            if ((bullet != null) && (_firingInstance != null))  _firingInstance.FireCannon(bullet);
+         }
+           
+        
 
         if (CrossPlatformInputManager.GetButtonDown("Fire2"))
         {
             GameObject bullet = largebulletpool.GetPooledObject();
-            if (bullet != null)
-            {
-                bullet.transform.position = this.transform.GetChild(0).position;
-                bullet.transform.rotation = Quaternion.identity;
-                bullet.SetActive(true);
-            }
+            if ((bullet != null) && (_firingInstance != null)) _firingInstance.FireCannon(bullet);
         }
 
 
