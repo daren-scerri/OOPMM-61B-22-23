@@ -26,10 +26,17 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.name.Contains("Bullet"))
         {
             other.gameObject.SetActive(false);
-            GameData.Score += scorevalue;
+            
             health--;
             Debug.Log("Score: " + GameData.Score.ToString());
-            if (health <= 0) Destroy(this.gameObject); 
+            if (health <= 0)
+            {
+                GameData.Score += scorevalue;
+                GameManager.Instance.DisplayScore();
+                Destroy(this.gameObject);
+          
+            }
+                
 
         }
     }

@@ -13,11 +13,13 @@ public class RotatingCannon : MonoBehaviour
     Quaternion newRotation, clampRotLow, clampRotHigh;
     public BulletPooling smallbulletpool, largebulletpool;
 
+    CannonFiring _firingInstance;
     // Start is called before the first frame update
     void Start()
     {
         clampRotLow = Quaternion.Euler(0, 0, -70);
         clampRotHigh = Quaternion.Euler(0, 0, 70);
+        _firingInstance = GetComponentInChildren(typeof(CannonFiring)) as CannonFiring;
     }
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class RotatingCannon : MonoBehaviour
         newRotation.w = Mathf.Clamp(newRotation.w, clampRotLow.w, clampRotHigh.w);
 
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, newRotation, Time.deltaTime * 3f);
-        CannonFiring _firingInstance = GetComponentInChildren(typeof(CannonFiring)) as CannonFiring;
+        
 
         if (CrossPlatformInputManager.GetButtonDown("Fire1"))
         {

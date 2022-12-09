@@ -1,11 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class SetupGame : Singleton<SetupGame>
+public class GameManager : Singleton<GameManager>
 {
+
+
     private GameObject vertWallPrefab, horizWallPrefab;
     // Start is called before the first frame update
+
+    public Text scoreText;
+
+    public override void Awake()
+    {
+        base.Awake();
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     void Start()
     {
         vertWallPrefab = Resources.Load("prefabs/VerticalWall") as GameObject;
@@ -16,12 +28,15 @@ public class SetupGame : Singleton<SetupGame>
         Instantiate(horizWallPrefab, new Vector3(0, GameData.YMin - 5, 0), Quaternion.identity, this.gameObject.transform);
         Instantiate(horizWallPrefab, new Vector3(0, GameData.YMax + 5, 0), Quaternion.identity, this.gameObject.transform);
 
+        GameData.Score = 0;
+        DisplayScore();
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DisplayScore()
     {
-        
+        scoreText.text = "Score: " + GameData.Score.ToString();
     }
+
+
 }

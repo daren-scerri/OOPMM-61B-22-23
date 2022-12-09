@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner :MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
     public List<EnemySO> myenemiesList;
     // Start is called before the first frame update

@@ -15,4 +15,4 @@ MonoBehaviour:
   EnemyGO: {fileID: 3513440476183468001, guid: 0b421ef62f7b2974fb43adcf0d80ff95, type: 3}
   speed: 5
   scoreReward: 10
-  strength: 5
+  strength: 2
