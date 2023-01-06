@@ -13,6 +13,16 @@ public abstract class GameData : MonoBehaviour
         set { _score = value; }
     }
 
+
+    static int _playerHealth;
+    public static int PlayerHealth
+    {
+        get { return _playerHealth; }
+        set { _playerHealth = value; }
+    }
+
+
+
     public static Vector3 MousePos
     {
         get { return GetMousePos(); }

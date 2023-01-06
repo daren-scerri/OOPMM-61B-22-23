@@ -39,6 +39,15 @@ public class Enemy : MonoBehaviour
                 
 
         }
+
+        if (other.gameObject.name.Contains("Wall"))
+        {
+            GameData.PlayerHealth--;
+            if (GameData.PlayerHealth<=0)
+            {
+                GameManager.Instance.LoseGame();
+            }
+        }
     }
 
 }
