@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
 
         // Rotate our Rigidbody by this amount
         body.MoveRotation(transform.rotation * rotation);
+
+        GameData.PlayerPos = this.transform.position;
 	}
 
     // Returns input values of 0, 1 or -1 based on whether Player tries to move forward or back

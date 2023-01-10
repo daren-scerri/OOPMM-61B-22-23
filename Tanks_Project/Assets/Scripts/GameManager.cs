@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour {
 
     public void OnEnemyDie()
     {
-      
         GameData.GameScore++;
         playerScoreText.text = "Score: " + GameData.GameScore.ToString();
         GetComponent<SaveLoadManager>().SaveData();

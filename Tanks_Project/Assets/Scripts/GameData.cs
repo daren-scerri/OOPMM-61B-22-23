@@ -7,6 +7,7 @@ public abstract class GameData : MonoBehaviour
     // Start is called before the first frame update
     private static int _score;
     private static int _lives;
+    
 
     public static int GameScore
     {
@@ -20,6 +21,7 @@ public abstract class GameData : MonoBehaviour
         set { _lives = value; }
     }
 
+    public static Vector3 PlayerPos;
 
 
 }
